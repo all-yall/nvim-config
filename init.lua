@@ -15,9 +15,11 @@ MODULES = {
   "setup.mason",
   "setup.neo-tree",
   "setup.treesitter",
-  "setup.luadev",
+  "setup.ts-context",
   "setup.simple",
+  "setup.luadev",
   "setup.alpha",
+  "setup.notify",
   --"setup.iron",
 
   "util.edit-config",
@@ -25,6 +27,7 @@ MODULES = {
   --"util.java-brazil",
 
   "core.bindings",
+  "core.modes",
   "setup.better_escape",
   "setup.cmp",
 
@@ -34,6 +37,7 @@ MODULES = {
   --"lang.jdtls-brazil",
   "lang.simple",
 
+  "setup.catppuccin",
   "core.theme",
 }
 

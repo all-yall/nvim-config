@@ -12,6 +12,7 @@ local old_dir = std.pwd()
 function config.reload(quiet)
   local reload_module = require("plenary.reload").reload_module
   require("neo-tree").close_all()
+  vim.api.nvim_del_augroup_by_name("lspconfig") -- lspconfig sets clear = false in augroup options
 
   -- unload modules
   reload_module("core", false)
@@ -24,9 +25,8 @@ function config.reload(quiet)
   reload_module("which-key", false)
   reload_module("neo-tree", false)
 
+  vim.cmd.LspRestart()
   local reloaded, _ = pcall(dofile, config.init_file)
-  vim.cmd("LspRestart")
-  -- if successful reload and not quiet, display a notification
   if reloaded and not quiet then std.notify "Reloaded config" end
 end
 
@@ -37,8 +37,8 @@ end
 
 function config.edit()
   if std.pwd() == config.root then
-    std.notify("Sourcing config (This doesn't work yet, reload somehow?)")
-    config.reload()
+    std.notify("Sourcing config")
+    config.reload(true)
   else
     std.notify("Switching to config directory")
     old_dir = std.pwd()

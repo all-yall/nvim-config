@@ -1,3 +1,11 @@
+-- Lua reigns supremem!
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+
+vim.go.laststatus = 0
+
 local o = {
   compatible = false,
 
@@ -15,6 +23,7 @@ local o = {
   undofile   = true,
   encoding = "UTF-8",
   termguicolors = true,
+  -- see notify.lua for cmd height.
 }
 
 for opt, val in pairs(o) do

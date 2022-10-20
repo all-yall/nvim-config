@@ -11,6 +11,7 @@ paq {
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig';
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd("TSUpdate") end};
+  'nvim-treesitter/nvim-treesitter-context';
   'p00f/nvim-ts-rainbow';
   'lukas-reineke/indent-blankline.nvim';
   'williamboman/mason.nvim';
@@ -32,6 +33,7 @@ paq {
   'bfredl/nvim-luadev';
   'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
+  'rcarriga/nvim-notify';
   --'hkupty/iron.nvim';
 
   ---- New Commands

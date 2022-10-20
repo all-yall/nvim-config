@@ -1,6 +1,7 @@
 vim.g.mapleader = ' '
 
 local wk = require('which-key')
+owo.wk = wk
 wk.register({
   s = {"<cmd>w<cr>",           "save file"},
   d = {"<cmd>bd<cr>",          "close buf & win"},
@@ -13,11 +14,10 @@ wk.register({
   n = {vim.lsp.buf.rename,     "change name"},
   ["<Tab>"] = {owo.buf.alt,        "alt file"},
 
-  [";"] = {owo.plug.dap.repl.toggle,  "debug toggle repl"},
-  ["/"] = {owo.plug.dap.toggle_breakpoint,  "debug toggle breakpoint"},
-  [","] = {owo.plug.dap.step_into,  "debug step into"},
-  ["."] = {owo.plug.dap.step_over,  "debug step over"},
-  [">"] = {owo.plug.dap.continue,    "debug continue"},
+  [";"] = {"<cmd>cnext<cr>zz",  "quickfix next"},
+  ["."] = {"<cmd>cnext<cr>zz",  "quickfix next"},
+  [","] = {"<cmd>cprev<cr>zz",  "quickfix prev"},
+  ["/"] = {"<cmd>cclose<cr>", "quickfix close"},
 
   e = {
     name = "error",
@@ -58,8 +58,6 @@ wk.register({
 
   },
 
-  x = {owo.plug.luadev.exec_motion, "lua exec motion"},
-  X = {owo.plug.luadev.exec_buffer, "lua exec buffer"},
 
   [' '] = {
     name = "meta",
@@ -81,6 +79,8 @@ wk.register({
     },
     q = {"<cmd>xall<cr>", "save all and close"},
     f = {"<cmd>qa!<cr>", "close all without saving"},
+    n = {"<cmd>Telescope notify<cr>", "previous notifications"},
+    d = {owo.plug.notify.dismiss({}), "dismiss notifications"},
   }
 }, { prefix = "<leader>" })
 
@@ -96,21 +96,14 @@ wk.register({
 
   gd = {"<cmd>Telescope lsp_definitions<cr>" , "definition"},
   gr = {"<cmd>Telescope lsp_references<cr>", "references"},
+
+  X = {owo.plug.luadev.exec_motion, "lua exec motion"},
+  [""] = {owo.plug.luadev.exec_buffer, "lua exec buffer"},
 }, {mode = "n", prefix=""})
 
 
 if owo.amazon then
-  wk.register({
-    t = {
-      n = {owo.amazon.test_nearest, "test nearest"},
-      w = {owo.amazon.test_suite, "test suite"},
-      s = {owo.amazon.select_test_strategy, "select test strategy"},
-    },
-    b = {
-      name = "build",
-      c = {owo.amazon.run_checkstyle, "checkstyle"},
-    }
-  }, {prefix="<leader>"})
+  owo.modes.amazon()
 end
 
 

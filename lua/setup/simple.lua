@@ -25,8 +25,17 @@ require('aerial').setup {
   filter_kind = false,--{}
 }
 
+local mocha = require("catppuccin.palettes").get_palette "mocha"
 require("bufferline").setup{
-  options = {diagnostics = "nvim_lsp"}
+  options = {diagnostics = "nvim_lsp"},
+	highlights = require("catppuccin.groups.integrations.bufferline").get {
+		styles = { "italic", "bold" },
+		custom = {
+			mocha = {
+				background = { fg = mocha.text },
+			},
+		},
+	},
 }
 
 require("indent_blankline").setup {
