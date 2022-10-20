@@ -5,6 +5,7 @@ if impatient_ok then impatient.enable_profile() end
 owo = {}
 
 MODULES = {
+  "util.debug",
   "util.std",
   "core.packages",
   "core.options",
