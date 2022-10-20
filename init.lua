@@ -11,6 +11,7 @@ MODULES = {
 
   "setup._pre",
   "setup.which-key",
+  "setup.mason",
   "setup.neo-tree",
   "setup.treesitter",
   "setup.luadev",

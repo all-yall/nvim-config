@@ -13,9 +13,11 @@ wk.register({
   n = {vim.lsp.buf.rename,     "change name"},
   ["<Tab>"] = {owo.buf.alt,        "alt file"},
 
-  ["."] = {"<cmd>cnext<cr>zz",  "quickfix next"},
-  [","] = {"<cmd>cprev<cr>zz",  "quickfix prev"},
-  ["/"] = {"<cmd>cclose<cr>", "quickfix close"},
+  [";"] = {owo.plug.dap.repl.toggle,  "debug toggle repl"},
+  ["/"] = {owo.plug.dap.toggle_breakpoint,  "debug toggle breakpoint"},
+  [","] = {owo.plug.dap.step_into,  "debug step into"},
+  ["."] = {owo.plug.dap.step_over,  "debug step over"},
+  [">"] = {owo.plug.dap.continue,    "debug continue"},
 
   e = {
     name = "error",
@@ -63,6 +65,7 @@ wk.register({
     name = "meta",
     l = {
       name = "lsp",
+      g = {"<cmd>LspInstall<cr>", "get recommended"},
       i = {"<cmd>LspInfo<cr>", "info"},
       l = {"<cmd>LspLog<cr>", "log"},
       s = {"<cmd>LspStart<cr>", "start"},

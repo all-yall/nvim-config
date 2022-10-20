@@ -1,7 +1,7 @@
 local paq = require 'paq'
 owo.paq = paq
-paq {
 
+paq {
   -- Colors
   'archseer/colibri.vim';
   {'embark-theme/vim', as="embark"};
@@ -13,6 +13,10 @@ paq {
   {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd("TSUpdate") end};
   'p00f/nvim-ts-rainbow';
   'lukas-reineke/indent-blankline.nvim';
+  'williamboman/mason.nvim';
+  'jose-elias-alvarez/null-ls.nvim';
+  'mfussenegger/nvim-dap';
+  'williamboman/mason-lspconfig.nvim';
 
   -- GUI
   'folke/which-key.nvim';
@@ -28,7 +32,7 @@ paq {
   'bfredl/nvim-luadev';
   'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
-  'hkupty/iron.nvim';
+  --'hkupty/iron.nvim';
 
   ---- New Commands
   '--tpope/vim-fugitive';
@@ -52,9 +56,8 @@ paq {
   'mfussenegger/nvim-jdtls';
   'elkowar/yuck.vim';
 
-  -- TODO; understand/deal with
-  -- Replace this plugin; Its shit
   'NvChad/nvim-colorizer.lua';
+  -- TODO; understand/deal with
   --'famiu/bufdelete.nvim';
   --'mg979/vim-visual-multi';
 
