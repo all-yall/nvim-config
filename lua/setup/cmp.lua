@@ -20,8 +20,8 @@ if cmp then
       ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' }, -- For luasnip users.
+      { name = 'nvim_lsp', max_item_count=12 },
+      { name = 'luasnip', max_item_count=12 }, -- For luasnip users.
     }, {{ name = 'buffer' }}),
   }
 
@@ -29,7 +29,7 @@ if cmp then
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
+      { name = 'buffer', max_item_count=12}
     }
   })
 
@@ -39,7 +39,7 @@ if cmp then
     sources = cmp.config.sources({
       { name = 'path' }
     }, {
-        { name = 'cmdline' }
+        { name = 'cmdline', max_item_count=12}
       })
   })
 end
