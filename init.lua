@@ -7,6 +7,7 @@ owo = {}
 MODULES = {
   "util.debug",
   "util.std",
+  "util.lay",
   "core.packages",
   "core.options",
 
@@ -16,11 +17,12 @@ MODULES = {
   "setup.neo-tree",
   "setup.treesitter",
   "setup.ts-context",
+  "setup.catppuccin",
   "setup.simple",
   "setup.luadev",
   "setup.alpha",
   "setup.notify",
-  --"setup.iron",
+  "setup.iron",
 
   "util.edit-config",
   "util.buf",
@@ -37,7 +39,6 @@ MODULES = {
   --"lang.jdtls-brazil",
   "lang.simple",
 
-  "setup.catppuccin",
   "core.theme",
 }
 

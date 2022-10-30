@@ -1,6 +1,7 @@
 local paq = require 'paq'
 owo.paq = paq
 
+-- parinfer
 paq {
   -- Colors
   'archseer/colibri.vim';
@@ -34,7 +35,7 @@ paq {
   'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
   'rcarriga/nvim-notify';
-  --'hkupty/iron.nvim';
+  'hkupty/iron.nvim';
 
   ---- New Commands
   '--tpope/vim-fugitive';

@@ -77,10 +77,15 @@ wk.register({
       u     = {"<cmd>PaqUpdate<cr>",  "update"},
       c     = {"<cmd>PaqClean<cr>",  "clean"},
     },
+    c = {
+      name = "cmp",
+      b = {function() owo.cmp.setup.buffer{enabled=false} end, "disable cmp"}
+    },
     q = {"<cmd>xall<cr>", "save all and close"},
     f = {"<cmd>qa!<cr>", "close all without saving"},
     n = {"<cmd>Telescope notify<cr>", "previous notifications"},
     d = {owo.plug.notify.dismiss({}), "dismiss notifications"},
+    r = {owo.config.reload, "reload config"},
   }
 }, { prefix = "<leader>" })
 
@@ -96,11 +101,7 @@ wk.register({
 
   gd = {"<cmd>Telescope lsp_definitions<cr>" , "definition"},
   gr = {"<cmd>Telescope lsp_references<cr>", "references"},
-
-  X = {owo.plug.luadev.exec_motion, "lua exec motion"},
-  [""] = {owo.plug.luadev.exec_buffer, "lua exec buffer"},
 }, {mode = "n", prefix=""})
-
 
 if owo.amazon then
   owo.modes.amazon()
@@ -118,8 +119,8 @@ vim.cmd[[
   command! W w
 
   "exit insert mode with fd like spacemacs
-  " I determined jf to be a very uncommon digraph
-  imap jf <Esc>
+  " I determined jk to be a very uncommon digraph
+  imap jk <Esc>
 
   " temporary
   tmap jk k

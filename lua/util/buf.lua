@@ -6,6 +6,10 @@ owo.buf = buf
 local exclude = {
   ["neo-tree"] = true,
   ["aerial"] = true,
+  ["fugitive"] = true,
+  ["fugitiveblame"] = true,
+  ["git"] = true,
+  ["help"] = true,
 }
 
 local function check_ok()

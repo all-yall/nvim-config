@@ -6,7 +6,9 @@ local lsp_langs = {
   "tsserver",
   "rust_analyzer",
   "tailwindcss",
-  "texlab"
+  "texlab",
+  "racket_langserver",
+  "solargraph",
 };
 
 for _, lang in ipairs(lsp_langs) do

@@ -25,14 +25,14 @@ require('aerial').setup {
   filter_kind = false,--{}
 }
 
-local mocha = require("catppuccin.palettes").get_palette "mocha"
+local style = require("catppuccin.palettes").get_palette(vim.g.catppuccin_flavour)
 require("bufferline").setup{
   options = {diagnostics = "nvim_lsp"},
 	highlights = require("catppuccin.groups.integrations.bufferline").get {
 		styles = { "italic", "bold" },
 		custom = {
-			mocha = {
-				background = { fg = mocha.text },
+			style = {
+				background = { fg = style.text },
 			},
 		},
 	},

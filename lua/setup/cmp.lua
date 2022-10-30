@@ -1,4 +1,5 @@
 local cmp = require('cmp')
+local cmp_types = require('cmp.types')
 owo.cmp = cmp
 
 if cmp then
@@ -17,12 +18,17 @@ if cmp then
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+      ['<Tab>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp', max_item_count=12 },
-      { name = 'luasnip', max_item_count=12 }, -- For luasnip users.
-    }, {{ name = 'buffer' }}),
+      { name = 'nvim_lsp',
+        max_item_count=12,
+        entry_filter = function(entry, _)
+          return cmp_types.lsp.CompletionItemKind[entry:get_kind()] ~= 'Text'
+        end,
+      },
+      --{ name = 'luasnip', max_item_count=12 }, -- For luasnip users.
+    }, {}), --{{ name = 'buffer' }}),
   }
 
   -- `/` cmdline setup.

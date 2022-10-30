@@ -11,6 +11,9 @@ function std.pwd()
 end
 
 function std.notify(message)
+  if type(message) ~= 'string' then
+    message = vim.inspect(message)
+  end
   if owo.plug and owo.plug.notify then
     owo.plug.notify.notify(message)
   else
@@ -66,11 +69,16 @@ function std.get_selected(sel_type)
   return std.get_text_in_range("'[", "']", sel_type)
 end
 
-function std.motion_cmd(func)
+function std.motion_cmd(func, no_pass_text)
   std._motion_cmd_func = function(sel_type)
-    local text = std.get_selected(sel_type)
-    func(text)
+    if no_pass_text then
+      func(sel_type)
+    else
+      local text = std.get_selected(sel_type)
+      func(text)
+    end
   end
   vim.go.operatorfunc = "v:lua.owo.std._motion_cmd_func"
   vim.api.nvim_feedkeys("g@", 'n', false) -- TODO bad way to do this
 end
+
