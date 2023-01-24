@@ -5,9 +5,7 @@ owo.paq = paq
 paq {
   -- Colors
   'archseer/colibri.vim';
-  {'embark-theme/vim', as="embark"};
-  'is-hoku/sakura';
-  "catppuccin/nvim";
+  {"catppuccin/nvim", as="catppuccin"};
 
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig';

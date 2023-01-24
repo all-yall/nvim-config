@@ -8,7 +8,10 @@ local lsp_langs = {
   "tailwindcss",
   "texlab",
   "racket_langserver",
-  "solargraph",
+  "gopls",
+  "golangci_lint_ls",
+  "hls",
+  "clangd",
 };
 
 for _, lang in ipairs(lsp_langs) do

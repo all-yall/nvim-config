@@ -153,11 +153,23 @@ local function create_dev_mode(ft)
 end
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"scheme", "ruby", "python", "sql"},
+  pattern = {"scheme", "ruby", "python", "sql", "haskell"},
   group = aug,
   callback = function(m)
     create_dev_mode(m.match)
   end
 })
 
---create_dev_mode("scheme")
+
+-- Treesitter indent isn't perfect, lol
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"go", "ruby"},
+  group = aug,
+  callback = function(_)
+    owo.std.notify("Disabliing treesitter indentexpr")
+    vim.defer_fn(function()
+      vim.bo.indentexpr=nil
+      vim.bo.smartindent=true
+    end, 30)
+  end
+})

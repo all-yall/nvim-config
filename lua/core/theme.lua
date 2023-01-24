@@ -28,3 +28,4 @@ register_tweaks("embark", function()
 end)
 
 vim.cmd.colorscheme("catppuccin")
+

@@ -1,4 +1,4 @@
-vim.g.catppuccin_flavour ="macchiato"
+vim.g.catppuccin_flavour = "mocha"
 
 require("catppuccin").setup({
 	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
