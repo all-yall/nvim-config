@@ -35,7 +35,17 @@ end
 
 function buf.close()
   if check_ok() then
-    vim.cmd("bp|sp|bn|bd") -- TODO bad binding
+    if vim.bo.modified then
+      std.notify("Won't quit modified buffer. Use <leader>Q to force")
+    else
+      vim.cmd("bp|sp|bn|bd") -- TODO bad binding
+    end
+  end
+end
+
+function buf.force_close()
+  if check_ok() then
+    vim.cmd("bp|sp|bn|bd!") -- TODO bad binding
   end
 end
 

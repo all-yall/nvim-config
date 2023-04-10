@@ -1,7 +1,8 @@
 {
-  "workspace": {
-    "ignoreDir": [
-      "undodir"
-    ]
-  }
+    "Lua.workspace.checkThirdParty": false,
+    "workspace": {
+        "ignoreDir": [
+            "undodir"
+        ]
+    }
 }

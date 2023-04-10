@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 function modes.q_to_close()
   wk.register({
-    q = {":q<cr>", "close window with q"}
+    q = {":q!<cr>", "close window with q!"}
   }, {mode="n", prefix="", buffer=0})
 end
 
@@ -71,6 +71,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "git",
     "fugitive",
     "fugitiveblame",
+    "TelescopePrompt",
+    "vim",
   },
   callback=modes.q_to_close})
 
@@ -163,10 +165,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Treesitter indent isn't perfect, lol
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"go", "ruby"},
+  pattern = {"go"},
   group = aug,
   callback = function(_)
-    owo.std.notify("Disabliing treesitter indentexpr")
+    owo.std.notify("Disabling treesitter indentexpr")
     vim.defer_fn(function()
       vim.bo.indentexpr=nil
       vim.bo.smartindent=true

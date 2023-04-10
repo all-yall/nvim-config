@@ -7,11 +7,13 @@ wk.register({
   d = {"<cmd>bd<cr>",          "close buf & win"},
   c = {"<C-w>c",               "close win"},
   q = {owo.buf.close,         "close buf"}, -- TODO; this binding isn't the best.
+  Q = {owo.buf.force_close,   "force close buf"}, -- TODO; this binding isn't the best.
   l = {owo.buf.next,          "next buf"},
   h = {owo.buf.prev,          "prev buf"},
   w = {"<C-w>",                "window commands"},
   r = {"<cmd>noh<cr>",         "reset search highlight"},
-  n = {vim.lsp.buf.rename,     "change name"},
+  n = {vim.lsp.buf.rename,      "change name"},
+  a = {vim.lsp.buf.code_action, "code action"},
   ["<Tab>"] = {owo.buf.alt,        "alt file"},
 
   [";"] = {"<cmd>cnext<cr>zz",  "quickfix next"},
@@ -55,6 +57,7 @@ wk.register({
     t = {"<cmd>NeoTreeRevealToggle<cr>",       "toggle file explorer"},
     r = {"<cmd>Gitsigns toggle_deleted<cr>",   "toggle removed"},
     o = {"<cmd>AerialToggle<cr>",  "toggle outline"},
+    c = {"<cmd>ColorizerToggle<cr>",  "toggle colorizer"},
 
   },
 
@@ -124,4 +127,15 @@ vim.cmd[[
 
   " temporary
   tmap jk k
+
+  " Mimic Emacs Line Editing in Insert Mode Only
+  imap <C-a> <Home>
+  imap <C-b> <Left>
+  imap <C-e> <End>
+  imap <C-f> <Right>
+  imap <M-b> <C-Left>
+  imap <M-f> <C-Right>
+  imap <C-k> <Esc>lDa
+  imap <C-u> <Esc>d-1xi
+  imap <C-y> <Esc>Pa
 ]]

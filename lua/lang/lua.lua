@@ -1,4 +1,5 @@
-owo.lsp.lspconfig.sumneko_lua.setup {
+owo.lsp.lspconfig.lua_ls.setup {
+  capabilities = owo.cmp.capabilities,
   settings = {
     Lua = {
       runtime = {

@@ -4,7 +4,9 @@ if impatient_ok then impatient.enable_profile() end
 ---@diagnostic disable-next-line: lowercase-global
 owo = {}
 
-MODULES = {
+GLOBAL_VAL="Hello world!";
+
+local MODULES = {
   "util.debug",
   "util.std",
   "util.lay",
@@ -35,6 +37,7 @@ MODULES = {
 
   "lang._pre",
   "lang.lua",
+  "lang.clangd",
   --"lang.barium",
   --"lang.jdtls-brazil",
   "lang.simple",

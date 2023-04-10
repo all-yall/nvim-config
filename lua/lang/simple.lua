@@ -5,13 +5,11 @@ local lsp_langs = {
   "vimls",
   "tsserver",
   "rust_analyzer",
-  "tailwindcss",
   "texlab",
   "racket_langserver",
   "gopls",
   "golangci_lint_ls",
   "hls",
-  "clangd",
 };
 
 for _, lang in ipairs(lsp_langs) do

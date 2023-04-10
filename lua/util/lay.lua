@@ -1,4 +1,5 @@
 local std = owo.std;
+local wk = owo.wk;
 
 local toggle_view_percentage = 0.333
 
@@ -58,7 +59,7 @@ function std.ensure_open_focus(buf)
 end
 
 function std.make_toggle_buffer(buf)
-  owo.wk.register({
+  wk.register({
     [";;"] = {"c", "un-toggle window"}
   },{
     buffer = buf
