@@ -46,6 +46,7 @@ paq {
   'hrsh7th/cmp-cmdline';
   'hrsh7th/nvim-cmp';
   'saadparwaiz1/cmp_luasnip';
+  'CoderCookE/vim-chatgpt';
 
   -- Meta Stuff
   'lewis6991/impatient.nvim';

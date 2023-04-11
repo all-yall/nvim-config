@@ -19,7 +19,7 @@ vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 
 -- Lua reigns supremem!
-vim.g.loaded_python3_provider = 0
+--vim.g.loaded_python3_provider = 0 only need for gpt plugin 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
@@ -59,3 +59,8 @@ vim.cmd [[
   autocmd InsertLeave * set timeoutlen=1000
 ]]
 
+local priv_exists, _ = pcall(require, 'core/private');
+if (not priv_exists) then
+  vim.notify("private.lua does not exist, nvim may not work.")
+  vim.g.chat_gpt_key = ""
+end
