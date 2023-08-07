@@ -4,8 +4,6 @@ if impatient_ok then impatient.enable_profile() end
 ---@diagnostic disable-next-line: lowercase-global
 owo = {}
 
-GLOBAL_VAL="Hello world!";
-
 local MODULES = {
   "util.debug",
   "util.std",
@@ -47,5 +45,5 @@ local MODULES = {
 
 for _, source in ipairs(MODULES) do
   local status_ok, fault = pcall(require, source)
-  if not status_ok then vim.api.nvim_err_writeln("Failed to load " .. source .. "\n\n" .. fault) end
+  if not status_ok then vim.notify("Failed to load " .. source .. "\n\n" .. fault) end
 end

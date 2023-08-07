@@ -34,6 +34,7 @@ paq {
   'goolord/alpha-nvim';
   'rcarriga/nvim-notify';
   'hkupty/iron.nvim';
+  'gioele/vim-autoswap';
 
   ---- New Commands
   '--tpope/vim-fugitive';
@@ -46,7 +47,7 @@ paq {
   'hrsh7th/cmp-cmdline';
   'hrsh7th/nvim-cmp';
   'saadparwaiz1/cmp_luasnip';
-  'CoderCookE/vim-chatgpt';
+  --'CoderCookE/vim-chatgpt';
 
   -- Meta Stuff
   'lewis6991/impatient.nvim';

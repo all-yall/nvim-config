@@ -6,6 +6,7 @@ wk.register({
   s = {"<cmd>w<cr>",           "save file"},
   d = {"<cmd>bd<cr>",          "close buf & win"},
   c = {"<C-w>c",               "close win"},
+  C = {":Ask ",               "ask chatgpt"},
   q = {owo.buf.close,         "close buf"}, -- TODO; this binding isn't the best.
   Q = {owo.buf.force_close,   "force close buf"}, -- TODO; this binding isn't the best.
   l = {owo.buf.next,          "next buf"},
@@ -94,7 +95,16 @@ wk.register({
 
 wk.register({
   b = {":'<,'> GBrowse<cr>", "browse online"},
+  g = {
+    name = "ChatGPT",
+    r = {"<cmd>'<,'> Review<cr>",  "review"},
+    w = {": Rewrite ", "rewrite"},
+    f = {": Fix ",     "fix"},
+    t = {": Test ",    "make test"},
+    e = {": Explain ", "explain"},
+  }
 }, { mode = 'v', prefix = "<leader>" })
+
 
 wk.register({
   K =  {"<cmd>vert bel Man<cr>", "vertically open man pages"},

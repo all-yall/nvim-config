@@ -1,4 +1,5 @@
 local wk = owo.wk
+local std = owo.std
 local modes = {}
 owo.modes = modes
 
@@ -13,6 +14,17 @@ function modes.dbsys()
       buffer = 0,
     })
 end
+
+function modes.text()
+  vim.wo.wrap = true
+  vim.bo.filetype = "markdown"
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = aug,
+  pattern={"chatgpt"},
+  callback=modes.text})
+
 
 function modes.debug()
   wk.register ({
@@ -60,7 +72,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 function modes.q_to_close()
   wk.register({
-    q = {":q!<cr>", "close window with q!"}
+    q = {":q!<cr>", "close window with q"}
   }, {mode="n", prefix="", buffer=0})
 end
 
@@ -73,6 +85,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "fugitiveblame",
     "TelescopePrompt",
     "vim",
+    "chatgpt",
   },
   callback=modes.q_to_close})
 
@@ -101,7 +114,7 @@ local repls = {}
 local function create_repl(ft)
   local curr = vim.api.nvim_get_current_buf()
   local rep = owo.plug.iron.repl_here(ft)
-  owo.std.make_toggle_buffer(0)
+  std.make_toggle_buffer(0)
   repls[ft] = rep.bufnr
   vim.api.nvim_set_current_buf(curr)
   vim.api.nvim_create_autocmd("BufUnload", {
@@ -117,21 +130,21 @@ local function toggle_repl(ft)
   if not repls[ft] then
     create_repl(ft)
   end
-  owo.std.toggle_buf(repls[ft])
+  std.toggle_buf(repls[ft])
 end
 
 local function ensure_open(ft)
   if not repls[ft] then
     create_repl(ft)
   end
-  owo.std.ensure_open(repls[ft])
+  std.ensure_open(repls[ft])
 end
 
 local function create_dev_mode(ft)
   wk.register({
   X = {
       function()
-        owo.std.motion_cmd(
+        std.motion_cmd(
           function(s)
             ensure_open(ft)
             owo.plug.iron.send(ft, s)
@@ -168,10 +181,11 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = {"go"},
   group = aug,
   callback = function(_)
-    owo.std.notify("Disabling treesitter indentexpr")
+    std.notify("Disabling treesitter indentexpr")
     vim.defer_fn(function()
       vim.bo.indentexpr=nil
       vim.bo.smartindent=true
     end, 30)
   end
 })
+

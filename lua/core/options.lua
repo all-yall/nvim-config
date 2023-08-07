@@ -18,8 +18,8 @@ vim.g.loaded_matchparen = 1
 vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 
--- Lua reigns supremem!
---vim.g.loaded_python3_provider = 0 only need for gpt plugin 
+-- Lua reigns supreme!
+vim.g.loaded_python3_provider = 0 --only need for gpt plugin 
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
