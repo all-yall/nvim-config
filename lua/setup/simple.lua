@@ -25,17 +25,9 @@ require('aerial').setup {
   filter_kind = false,--{}
 }
 
-local style = require("catppuccin.palettes").get_palette(vim.g.catppuccin_flavour)
 require("bufferline").setup{
   options = {diagnostics = "nvim_lsp"},
-	highlights = require("catppuccin.groups.integrations.bufferline").get {
-		styles = { "italic", "bold" },
-		custom = {
-			style = {
-				background = { fg = style.text },
-			},
-		},
-	},
+	highlights = {},
 }
 
 require("indent_blankline").setup {

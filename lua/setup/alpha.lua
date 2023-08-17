@@ -2,22 +2,22 @@
 local alpha = require'alpha'
 local theme =  require'alpha.themes.dashboard'
 theme.section.header.val = {
- [[    /$$$$$$                 /$$$$$$   ]],
- [[   /$$__  $$               /$$__  $$  ]],
- [[  | $$  \ $$ /$$  /$$  /$$| $$  \ $$  ]],
- [[  | $$  | $$| $$ | $$ | $$| $$  | $$  ]],
- [[  | $$  | $$| $$ | $$ | $$| $$  | $$  ]],
- [[  | $$  | $$| $$ | $$ | $$| $$  | $$  ]],
- [[  |  $$$$$$/|  $$$$$/$$$$/|  $$$$$$/  ]],
- [[   \______/  \_____/\___/  \______/   ]],}
+ [[   _   _  _____ _____  _   _ _             ]],
+ [[  | \ | ||  ___|  _  || | | (_)            ]],
+ [[  |  \| || |__ | | | || | | |_ _ __ ___    ]],
+ [[  | . ` ||  __|| | | || | | | | '_ ` _ \   ]],
+ [[  | |\  || |___\ \_/ /\ \_/ / | | | | | |  ]],
+ [[  \_| \_/\____/ \___/  \___/|_|_| |_| |_|  ]],
+ }
+
 theme.section.buttons.val = {
   theme.button("e", "Edit New File", "<cmd>enew<cr>"),
-  theme.button("t", "File Tree", "<cmd>NeoTreeRevealToggle<cr>"),
+  theme.button("t", "File Tree", "<cmd>Neotree toggle<cr>"),
   theme.button("f", "Find File", "<cmd>Telescope find_files<cr>"),
   theme.button("g", "Grep Files", "<cmd>Telescope live_grep<cr>"),
   theme.button("q", "Close This Window", "<cmd>q<cr>"),
 }
-theme.section.footer.val = "Who be this??"
+theme.section.footer.val = "new vi improved!"
 alpha.setup(theme.config)
 
 

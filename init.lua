@@ -17,7 +17,8 @@ local MODULES = {
   "setup.neo-tree",
   "setup.treesitter",
   "setup.ts-context",
-  "setup.catppuccin",
+  --"setup.catppuccin",
+  "setup.dracula",
   "setup.simple",
   "setup.luadev",
   "setup.alpha",
@@ -26,18 +27,19 @@ local MODULES = {
 
   "util.edit-config",
   "util.buf",
-  --"util.java-brazil",
+  "util.java-brazil",
+
+  "setup.better_escape",
+  "setup.cmp",
 
   "core.bindings",
   "core.modes",
-  "setup.better_escape",
-  "setup.cmp",
 
   "lang._pre",
   "lang.lua",
   "lang.clangd",
-  --"lang.barium",
-  --"lang.jdtls-brazil",
+  "lang.barium",
+  "lang.jdtls-brazil",
   "lang.simple",
 
   "core.theme",

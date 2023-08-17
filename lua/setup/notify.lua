@@ -2,7 +2,7 @@ local notify = require 'notify'
 owo.plug.notify = notify
 
 notify.setup {
-  background_colour = "Normal",
+  background_colour = "#000000",
   fps = 10,
   icons = {
     DEBUG = "",

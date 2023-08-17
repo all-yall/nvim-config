@@ -10,6 +10,7 @@ local lsp_langs = {
   "gopls",
   "golangci_lint_ls",
   "hls",
+  "solargraph",
 };
 
 for _, lang in ipairs(lsp_langs) do

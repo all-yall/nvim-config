@@ -1,11 +1,14 @@
 local paq = require 'paq'
 owo.paq = paq
 
+-- look at SCAT
+-- https://code.amazon.com/packages/Scat-nvim/trees/mainline
 -- parinfer
 paq {
   -- Colors
-  'archseer/colibri.vim';
-  {"catppuccin/nvim", as="catppuccin"};
+  --'archseer/colibri.vim';
+  --{"catppuccin/nvim", as="catppuccin"};
+  'Mofiqul/dracula.nvim',
 
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig';
@@ -29,7 +32,6 @@ paq {
   'nvim-neo-tree/neo-tree.nvim';
   'akinsho/bufferline.nvim';
   'lewis6991/gitsigns.nvim';
-  'bfredl/nvim-luadev';
   'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
   'rcarriga/nvim-notify';
@@ -37,7 +39,7 @@ paq {
   'gioele/vim-autoswap';
 
   ---- New Commands
-  '--tpope/vim-fugitive';
+  'tpope/vim-fugitive';
   'vim-test/vim-test';
   'junegunn/vim-easy-align';
   'L3MON4D3/LuaSnip';
@@ -51,19 +53,12 @@ paq {
 
   -- Meta Stuff
   'lewis6991/impatient.nvim';
-  'nvim-lua/plenary.nvim'; -- req: a few things?
-  'kyazdani42/nvim-web-devicons'; -- req: bufferline
+  'nvim-lua/plenary.nvim'; -- req: a few things? 'kyazdani42/nvim-web-devicons'; -- req: bufferline
   'MunifTanjim/nui.nvim'; -- req: telescope
 
   -- Language Specific
   'mfussenegger/nvim-jdtls';
-  'elkowar/yuck.vim';
-
   'NvChad/nvim-colorizer.lua';
-  -- TODO; understand/deal with
-  --'famiu/bufdelete.nvim';
-  --'mg979/vim-visual-multi';
-
 
   --  '/apollo/env/envImprovement/vim/amazon/brazil-config';
   --{'brazil-config',

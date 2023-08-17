@@ -55,7 +55,7 @@ wk.register({
 
   t = {
     name = "toggle & tests",
-    t = {"<cmd>NeoTreeRevealToggle<cr>",       "toggle file explorer"},
+    t = {"<cmd>Neotree toggle<cr>",       "toggle file explorer"},
     r = {"<cmd>Gitsigns toggle_deleted<cr>",   "toggle removed"},
     o = {"<cmd>AerialToggle<cr>",  "toggle outline"},
     c = {"<cmd>ColorizerToggle<cr>",  "toggle colorizer"},
@@ -94,6 +94,7 @@ wk.register({
 }, { prefix = "<leader>" })
 
 wk.register({
+  a = {vim.lsp.buf.code_action, "code action"},
   b = {":'<,'> GBrowse<cr>", "browse online"},
   g = {
     name = "ChatGPT",
@@ -115,10 +116,6 @@ wk.register({
   gd = {"<cmd>Telescope lsp_definitions<cr>" , "definition"},
   gr = {"<cmd>Telescope lsp_references<cr>", "references"},
 }, {mode = "n", prefix=""})
-
-if owo.amazon then
-  owo.modes.amazon()
-end
 
 
 vim.cmd[[

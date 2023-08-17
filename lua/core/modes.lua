@@ -54,6 +54,47 @@ function modes.amazon()
   }, {prefix="<leader>"})
 end
 
+-- if at amazon, do as the amazonians
+if owo.amazon then
+  owo.modes.amazon()
+end
+
+local jdtls = require('jdtls')
+
+function modes.jdtls()
+  local bindings = {
+      j = {
+      name = "jdtls bindings",
+      o = {jdtls.organize_imports,  "organize imports"},
+      i = {jdtls.compile,  "incremental build"},
+      b = {jdtls.build_projects,  "build projects"},
+      u = {jdtls.update_project_config,  "update project config"},
+      c = {jdtls.extract_constant,  "constant extract"},
+      v = {jdtls.extract_variable,  "variable extract"},
+      V = {jdtls.extract_variable_all,  "all variables extract"},
+      m = {jdtls.extract_method,  "method extract"},
+      s = {jdtls.super_implementation,  "super goto"},
+      p = {jdtls.javap,  "javap tool"},
+      l = {jdtls.jshell,  "jshell tool"},
+      j = {jdtls.jol,  "jol tool"},
+      f = {jdtls.open_classfile,  "open classfile"},
+      d = {
+        name = "dap",
+        c = {jdtls.test_class, "class test"},
+        m = {jdtls.test_nearest_method, "method test"},
+        p = {jdtls.pick_test, "pick test"},
+        f = {jdtls.fetch_main_configs, "fetch main configs"},
+        S = {jdtls.setup_dap_main_class_configs, "setup dap main class"},
+        s = {jdtls.setup_dap, "setup dap"},
+      },
+    },
+  }
+  wk.register(bindings, {mode="n", prefix="<leader>"})
+  wk.register(bindings, {mode="v", prefix="<leader>"})
+end
+--vscode-java-test.generate()
+--vscode-java-test.goto_subjects()
+
 function modes.redirect_man_to_doc()
   wk.register({
     K = {"yiw:vert bel help \"<cr>", "Lookup symbol in vim help"}
@@ -178,7 +219,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Treesitter indent isn't perfect, lol
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"go"},
+  pattern = {"go", "lua"},
   group = aug,
   callback = function(_)
     std.notify("Disabling treesitter indentexpr")
