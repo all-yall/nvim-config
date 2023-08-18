@@ -3,8 +3,10 @@ owo.paq = paq
 
 -- parinfer
 paq {
+  -- Allow paq to manage itself
+  'savq/paq-nvim';
+
   -- Colors
-  'archseer/colibri.vim';
   {"catppuccin/nvim", as="catppuccin"};
 
   -- Language Server and Syntax Highlighting
