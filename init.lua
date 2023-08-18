@@ -1,8 +1,10 @@
-local impatient_ok, impatient = pcall(require, "impatient")
-if impatient_ok then impatient.enable_profile() end
-
 ---@diagnostic disable-next-line: lowercase-global
 owo = {}
+
+require("setup")
+
+local impatient_ok, impatient = pcall(require, "impatient")
+if impatient_ok then impatient.enable_profile() end
 
 local MODULES = {
   "util.debug",
