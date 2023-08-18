@@ -1,7 +1,7 @@
 ---@diagnostic disable-next-line: lowercase-global
 owo = {}
 
-require("setup")
+require("install-paq")
 
 local impatient_ok, impatient = pcall(require, "impatient")
 if impatient_ok then impatient.enable_profile() end
