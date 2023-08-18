@@ -132,9 +132,6 @@ vim.cmd[[
   " I determined jk to be a very uncommon digraph
   imap jk <Esc>
 
-  " temporary
-  tmap jk k
-
   " Mimic Emacs Line Editing in Insert Mode Only
   imap <C-a> <Home>
   imap <C-b> <Left>
