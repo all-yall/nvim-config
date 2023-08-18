@@ -9,8 +9,6 @@ paq {
   'savq/paq-nvim';
 
   -- Colors
-  --'archseer/colibri.vim';
-  --{"catppuccin/nvim", as="catppuccin"};
   'Mofiqul/dracula.nvim';
 
   -- Language Server and Syntax Highlighting

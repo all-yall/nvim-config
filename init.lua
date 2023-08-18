@@ -19,7 +19,6 @@ local MODULES = {
   "setup.neo-tree",
   "setup.treesitter",
   "setup.ts-context",
-  --"setup.catppuccin",
   "setup.dracula",
   "setup.simple",
   "setup.alpha",
