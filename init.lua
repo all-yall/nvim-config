@@ -22,7 +22,6 @@ local MODULES = {
   --"setup.catppuccin",
   "setup.dracula",
   "setup.simple",
-  "setup.luadev",
   "setup.alpha",
   "setup.notify",
   "setup.iron",
