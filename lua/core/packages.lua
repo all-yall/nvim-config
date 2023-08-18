@@ -56,6 +56,7 @@ paq {
   'lewis6991/impatient.nvim';
   'nvim-lua/plenary.nvim'; -- req: a few things? 'kyazdani42/nvim-web-devicons'; -- req: bufferline
   'MunifTanjim/nui.nvim'; -- req: telescope
+  'kyazdani42/nvim-web-devicons';
 
   -- Language Specific
   'mfussenegger/nvim-jdtls';
