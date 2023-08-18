@@ -123,26 +123,6 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback=modes.q_to_close})
 
-function modes.luadev()
-  wk.register({
-  X = {owo.plug.luadev.exec_motion, "lua exec motion"},
-  [""] = {owo.plug.luadev.exec_buffer, "lua exec buffer"},
-
-  [';'] = {function() owo.plug.luadev.toggle() end, "focus repl"}
-  }, {
-    modes = "n",
-    prefix = "",
-    buffer = 0,
-  })
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = aug,
-  pattern={
-    "lua",
-  },
-  callback=modes.luadev})
-
 local repls = {}
 
 local function create_repl(ft)

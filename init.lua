@@ -21,7 +21,6 @@ local MODULES = {
   "setup.ts-context",
   "setup.catppuccin",
   "setup.simple",
-  "setup.luadev",
   "setup.alpha",
   "setup.notify",
   "setup.iron",
