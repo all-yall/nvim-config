@@ -5,10 +5,13 @@ owo.paq = paq
 -- https://code.amazon.com/packages/Scat-nvim/trees/mainline
 -- parinfer
 paq {
+  -- Allow paq to manage itself
+  'savq/paq-nvim';
+
   -- Colors
   --'archseer/colibri.vim';
   --{"catppuccin/nvim", as="catppuccin"};
-  'Mofiqul/dracula.nvim',
+  'Mofiqul/dracula.nvim';
 
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig';
