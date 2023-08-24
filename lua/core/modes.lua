@@ -203,3 +203,30 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+local function create_notes_mode()
+  wk.register({
+    ["<Enter>"] = {
+      function()
+        vim.api.nvim_feedkeys("gf", 'n', false)
+      end,
+      "go to file",
+    },
+    ["<Backspace>"] = {
+      owo.buf.alt,
+      "back file",
+    },
+  }, {
+    modes = "n",
+    prefix = "",
+    buffer = 0,
+  })
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"markdown"},
+  group = aug,
+  callback = function()
+    create_notes_mode()
+  end
+})
+
