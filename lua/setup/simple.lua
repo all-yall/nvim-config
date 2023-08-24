@@ -14,6 +14,16 @@ require('telescope').setup{
   defaults = {
     layout_strategy = 'vertical',
     layout_config = { height = 0.80, width = 0.70 },
+    vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--ignore-file", "./.ignore"
+        },
   },
 }
 require('telescope').load_extension('fzf')
