@@ -16,5 +16,7 @@ local lsp_langs = {
 for _, lang in ipairs(lsp_langs) do
   owo.lsp.lspconfig[lang].setup {
     capabilities = owo.cmp.capabilities,
+    single_file_support = true,
   }
 end
+
