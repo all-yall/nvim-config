@@ -17,7 +17,7 @@ theme.section.buttons.val = {
   theme.button("g", "Grep Files", "<cmd>Telescope live_grep<cr>"),
   theme.button("q", "Close This Window", "<cmd>q<cr>"),
 }
-theme.section.footer.val = "new vi improved!"
+theme.section.footer.val = "Ally's New Vi Improved!"
 alpha.setup(theme.config)
 
 
