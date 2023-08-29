@@ -5,8 +5,7 @@ owo.config = config
 
 config.init_file = std.get_env("MYVIMRC")
 config.root = vim.fs.dirname(config.init_file)
-
-local old_dir = std.pwd()
+config.old_dir = std.pwd()
 
 --- Reload the configuration live 
 function config.reload(quiet)
@@ -31,8 +30,8 @@ function config.reload(quiet)
 end
 
 function config.stop_edit()
-  std.notify("Switching back directory '"..old_dir.."'")
-  vim.api.set_current_dir(old_dir)
+  std.notify("Switching back directory '"..config.old_dir.."'")
+  vim.api.nvim_set_current_dir(config.old_dir)
 end
 
 function config.edit()
@@ -41,8 +40,8 @@ function config.edit()
     config.reload(true)
   else
     std.notify("Switching to config directory")
-    old_dir = std.pwd()
-    vim.cmd("cd " .. config.root)
+    config.old_dir = std.pwd()
+    vim.api.nvim_set_current_dir(config.root)
     vim.cmd("e " .. config.init_file)
   end
 end
