@@ -57,6 +57,10 @@ end
 local jdtls = require('jdtls')
 
 function modes.jdtls()
+  jdtls.setup_dap({
+    config_overrides={},
+  });
+
   local bindings = {
       j = {
       name = "jdtls bindings",
@@ -86,6 +90,9 @@ function modes.jdtls()
   }
   wk.register(bindings, {mode="n", prefix="<leader>"})
   wk.register(bindings, {mode="v", prefix="<leader>"})
+  
+  vim.bo.tabstop = 4
+  vim.bo.shiftwidth = 4
 end
 
 function modes.redirect_man_to_doc()

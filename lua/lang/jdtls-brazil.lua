@@ -16,6 +16,9 @@ JDTLS_SETUP = function()
   end
 
   local lombok_jar = home .. "/.config/nvim/java_libs/lombok.jar"
+  local bundles = {home .. "/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.49.0/com.microsoft.java.debug.plugin-0.49.0.jar"}
+  vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_libs/server/*.jar", 1), "\n"))
+
   local config = {
     on_attach = require('aerial').on_attach,
     -- The command that starts the language server
@@ -35,7 +38,7 @@ JDTLS_SETUP = function()
         -- See https://github.com/mfussenegger/nvim-jdtls#java-debug-installation
         --
         -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
-        bundles = {},
+        bundles = bundles,
     },
 
     -- Here you can configure eclipse.jdt.ls specific settings
