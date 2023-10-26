@@ -3,6 +3,7 @@
 
 local lsp_langs = {
   "vimls",
+  "pyright",
   "tsserver",
   "rust_analyzer",
   "texlab",
