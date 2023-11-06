@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern={"chatgpt"},
   callback=modes.text})
 
+local dap_setup = false
+local function maybe_setup_dap()
+  if not dap_setup then
+    vim.cmd('JdtUpdateDebugConfig')
+  end
+  dap_setup = true
+end
 
 function modes.debug()
   wk.register ({
@@ -32,7 +39,10 @@ function modes.debug()
     ["?"] = {owo.plug.dap.toggle_breakpoint,  "debug toggle breakpoint"},
     [","] = {owo.plug.dap.step_into,  "debug step into"},
     ["."] = {owo.plug.dap.step_over,  "debug step over"},
-    [">"] = {owo.plug.dap.continue,    "debug continue"},
+    [">"] = {function()
+      maybe_setup_dap()
+      owo.plug.dap.continue()
+    end,    "debug continue"},
   }, {
       mode   = "n",
       prefix = "",
@@ -95,7 +105,9 @@ function modes.jdtls()
   }
   wk.register(bindings, {mode="n", prefix="<leader>"})
   wk.register(bindings, {mode="v", prefix="<leader>"})
-  
+
+  modes.debug()
+
   vim.bo.tabstop = 4
   vim.bo.shiftwidth = 4
 end
@@ -134,6 +146,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "TelescopePrompt",
     "vim",
     "chatgpt",
+    "termial",
   },
   callback=modes.q_to_close})
 

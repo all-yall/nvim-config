@@ -15,7 +15,14 @@ JDTLS_SETUP = function()
     end
   end
 
-  local lombok_jar = home .. "/.config/nvim/java_libs/lombok.jar"
+  local default_lombok_jar = home .. "/.config/nvim/java_libs/lombok.jar"
+  local project_lombok_jar = vim.fn.glob("../../env/Lombok-*/runtime/lib/lombok.jar")
+
+  local lombok_jar = default_lombok_jar
+  if project_lombok_jar ~= "" then
+    lombok_jar = project_lombok_jar
+  end
+
   local bundles = {home .. "/.m2/repository/com/microsoft/java/com.microsoft.java.debug.plugin/0.49.0/com.microsoft.java.debug.plugin-0.49.0.jar"}
   vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_libs/server/*.jar", 1), "\n"))
 
@@ -25,7 +32,8 @@ JDTLS_SETUP = function()
       -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
       cmd = {'jdtls',
         "--jvm-arg=-javaagent:" .. lombok_jar, -- need for lombok magic
-          "--jvm-arg=-Xbootclasspath/a:".. lombok_jar,
+        "--jvm-arg=-javaagent:" .. lombok_jar, -- need for lombok magic
+        "--jvm-arg=-Xbootclasspath/a:".. lombok_jar,
         "-data", eclipse_workspace,
       },
     root_dir = root_dir,

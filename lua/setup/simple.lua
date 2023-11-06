@@ -55,4 +55,3 @@ vim.g.indent_blankline_char_highlight_list = {'LineNr'}
 --    },
 --})
 
-owo.plug.dap = require 'dap'
