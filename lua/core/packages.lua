@@ -40,7 +40,6 @@ paq {
   'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
   'rcarriga/nvim-notify';
-  'hkupty/iron.nvim';
   'gioele/vim-autoswap';
 
   ---- New Commands

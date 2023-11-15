@@ -9,7 +9,6 @@ if impatient_ok then impatient.enable_profile() end
 local MODULES = {
   "util.debug",
   "util.std",
-  "util.lay",
   "core.packages",
   "core.options",
 
@@ -23,7 +22,6 @@ local MODULES = {
   "setup.simple",
   "setup.alpha",
   "setup.notify",
-  "setup.iron",
   "setup.bufferline",
   "setup.dap",
 
