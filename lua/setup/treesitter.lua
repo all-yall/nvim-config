@@ -4,6 +4,10 @@
 local treesitter_langs = {"vim", "lua", "java", "rust"}
 
 require('nvim-treesitter.configs').setup {
+  sync_install = false,
+  auto_install = false,
+  ignore_install = {},
+  modules = {},
   ensure_installed = treesitter_langs,
   highlight = {
     enable = true,
@@ -18,5 +22,5 @@ require('nvim-treesitter.configs').setup {
     -- colors = { "#D12229", "#F68A1E", "#FDE01A", "#00904c", "#415eaf", "#9b4cab", }
     -- termcolors = {},
   },
+  textobjects={enable=true}
 }
-

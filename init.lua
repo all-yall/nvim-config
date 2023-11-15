@@ -24,6 +24,7 @@ local MODULES = {
   "setup.alpha",
   "setup.notify",
   "setup.iron",
+  "setup.bufferline",
   "setup.dap",
 
   "util.edit-config",
