@@ -95,15 +95,6 @@ wk.register({
 
 wk.register({
   a = {vim.lsp.buf.code_action, "code action"},
-  b = {":'<,'> GBrowse<cr>", "browse online"},
-  g = {
-    name = "ChatGPT",
-    r = {"<cmd>'<,'> Review<cr>",  "review"},
-    w = {": Rewrite ", "rewrite"},
-    f = {": Fix ",     "fix"},
-    t = {": Test ",    "make test"},
-    e = {": Explain ", "explain"},
-  }
 }, { mode = 'v', prefix = "<leader>" })
 
 
