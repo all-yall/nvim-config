@@ -44,6 +44,11 @@ require("indent_blankline").setup {
   -- for example, context is off by default, use this to turn it on
   show_current_context = true,
   show_current_context_start = true,
+require('scat').setup{
+  cr = {
+    -- template_path = vim.fn.expandcmd"$HOME/<path_to_your_cr_template>",
+    user = "iamally"
+  }
 }
 vim.g.indent_blankline_char_highlight_list = {'LineNr'}
 

@@ -66,6 +66,7 @@ paq {
   'mfussenegger/nvim-jdtls';
   'NvChad/nvim-colorizer.lua';
 
+  { 'scat-nvim', url='ssh://git.amazon.com/pkg/Scat-nvim' };
   --  '/apollo/env/envImprovement/vim/amazon/brazil-config';
   --{'brazil-config',
     --url='/apollo/env/NinjaHooks/configuration/vim/amazon/brazil-config'};

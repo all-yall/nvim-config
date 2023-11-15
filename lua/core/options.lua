@@ -58,9 +58,3 @@ vim.cmd [[
   autocmd InsertEnter * set timeoutlen=300
   autocmd InsertLeave * set timeoutlen=1000
 ]]
-
-local priv_exists, _ = pcall(require, 'core/private');
-if (not priv_exists) then
-  vim.notify("private.lua does not exist, nvim may not work.")
-  vim.g.chat_gpt_key = ""
-end
