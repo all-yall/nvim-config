@@ -35,23 +35,12 @@ require('aerial').setup {
   filter_kind = false,--{}
 }
 
-require("bufferline").setup{
-  options = {diagnostics = "nvim_lsp"},
-	highlights = {},
-}
+require("ibl").setup()
 
 require("indent_blankline").setup {
   -- for example, context is off by default, use this to turn it on
   show_current_context = true,
   show_current_context_start = true,
 }
+
 vim.g.indent_blankline_char_highlight_list = {'LineNr'}
-
---require("null-ls").setup({
---    sources = {
---        require("null-ls").builtins.formatting.stylua,
---        require("null-ls").builtins.diagnostics.eslint,
---        require("null-ls").builtins.completion.spell,
---    },
---})
-

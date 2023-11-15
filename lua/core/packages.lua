@@ -11,7 +11,7 @@ paq {
 
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig';
-  {'nvim-treesitter/nvim-treesitter', run = function() vim.cmd("TSUpdate") end};
+  {'nvim-treesitter/nvim-treesitter', build = function() vim.cmd("TSUpdate") end};
   'nvim-treesitter/nvim-treesitter-context';
   'p00f/nvim-ts-rainbow';
   'lukas-reineke/indent-blankline.nvim';
@@ -24,7 +24,7 @@ paq {
   'folke/which-key.nvim';
   'nvim-telescope/telescope.nvim';
   {'nvim-telescope/telescope-fzf-native.nvim',
-   run = function() os.execute[[
+   build = function() os.execute[[
              cd ~/.local/share/nvim/site/pack/paqs/start/telescope-fzf-native.nvim/ &&
              cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release &&
              cmake --build build --config Release &&

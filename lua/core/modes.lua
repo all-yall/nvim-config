@@ -212,7 +212,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Treesitter indent isn't perfect, lol
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"go", "lua"},
+  pattern = {"go"},
   group = aug,
   callback = function(_)
     std.notify("Disabling treesitter indentexpr")
