@@ -23,6 +23,7 @@ local MODULES = {
   "setup.alpha",
   "setup.notify",
   "setup.bufferline",
+  "setup.symbols_outline",
   "setup.dap",
 
   "util.edit-config",
