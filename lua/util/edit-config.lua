@@ -29,6 +29,10 @@ function config.reload(quiet)
 end
 
 function config.stop_edit()
+  if not OLD_DIR then
+    std.notify("Not editing config; Doing nothing.")
+    return
+  end
   std.notify("Switching back directory '"..OLD_DIR.."'")
   vim.api.nvim_set_current_dir(OLD_DIR)
 end
