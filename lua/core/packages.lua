@@ -31,7 +31,7 @@ paq {
              cmake --install build --prefix build
              ]] end
            };
-  'stevearc/aerial.nvim'; -- NOTE: requires lsp
+  'simrat39/symbols-outline.nvim';
   'nvim-neo-tree/neo-tree.nvim';
   'akinsho/bufferline.nvim';
   'lewis6991/gitsigns.nvim';

@@ -57,7 +57,7 @@ wk.register({
     name = "toggle & tests",
     t = {"<cmd>Neotree toggle<cr>",       "toggle file explorer"},
     r = {"<cmd>Gitsigns toggle_deleted<cr>",   "toggle removed"},
-    o = {"<cmd>AerialToggle<cr>",  "toggle outline"},
+    o = {"<cmd>SymbolsOutline<cr>",  "toggle outline"},
     c = {"<cmd>ColorizerToggle<cr>",  "toggle colorizer"},
 
   },

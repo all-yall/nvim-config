@@ -5,7 +5,7 @@ owo.buf = buf
 
 local exclude = {
   ["neo-tree"] = true,
-  ["aerial"] = true,
+  ["Outline"] = true,
   ["fugitive"] = true,
   ["fugitiveblame"] = true,
   ["git"] = true,
@@ -38,15 +38,13 @@ function buf.close()
     if vim.bo.modified then
       std.notify("Won't quit modified buffer. Use <leader>Q to force")
     else
-      vim.cmd("bp|sp|bn|bd") -- TODO bad binding
+      buf.force_close()
     end
   end
 end
 
 function buf.force_close()
-  if check_ok() then
-    vim.cmd("bp|sp|bn|bd!") -- TODO bad binding
-  end
+  vim.cmd("bp|sp|bn|bd!") -- TODO bad binding
 end
 
 function buf.alt()

@@ -30,11 +30,6 @@ require('telescope').load_extension('fzf')
 
 require('gitsigns').setup()
 
-require('aerial').setup {
-  -- To see all available values, see :help SymbolKind
-  filter_kind = false,--{}
-}
-
 require("ibl").setup()
 
 require("indent_blankline").setup {
