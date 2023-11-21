@@ -1,7 +1,7 @@
 JDTLS_SETUP = function()
   local root_dir = require('jdtls.setup').find_root({'packageInfo'}, 'Config')
-  --local home = os.getenv('HOME')
-  --local eclipse_workspace = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ':p:h:t')
+  local home = os.getenv('HOME')
+  local eclipse_workspace = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ':p:h:t')
 
   local ws_folders_lsp = {}
   local ws_folders_jdtls = {}
@@ -9,18 +9,22 @@ JDTLS_SETUP = function()
     local file = io.open(root_dir .. "/.bemol/ws_root_folders", "r");
     if file then
       for line in file:lines() do
-        table.insert(ws_folders_lsp, line);
         table.insert(ws_folders_jdtls, string.format("file://%s", line))
       end
       file:close()
     end
   end
 
-  require('jdtls').start_or_attach({
+local lombok_jar = home .. "/.config/nvim/java_libs/lombok.jar"
+  local config = {
     on_attach = require('aerial').on_attach,
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
-    cmd = {'jdtls'},
+    cmd = {'jdtls',
+    "--jvm-arg=-javaagent:" .. lombok_jar, -- need for lombok magic
+    "--jvm-arg=-Xbootclasspath/a:".. lombok_jar,
+    "-data", eclipse_workspace,
+    },
     root_dir = root_dir,
     init_options = {
       workspaceFolders = ws_folders_jdtls,
@@ -40,11 +44,15 @@ JDTLS_SETUP = function()
     settings = { java = { } },
 
     capabilities = owo.cmp.capabilities,
-  })
+  }
+
+  require('jdtls').start_or_attach(config)
 
   for _,line in ipairs(ws_folders_lsp) do
     vim.lsp.buf.add_workspace_folder(line)
   end
+
+  owo.modes.jdtls()
 end
 
 vim.cmd [[
