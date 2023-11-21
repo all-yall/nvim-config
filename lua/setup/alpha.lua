@@ -12,9 +12,6 @@ theme.section.header.val = {
 
 theme.section.buttons.val = {
   theme.button("e", "Edit New File", "<cmd>enew<cr>"),
-  theme.button("t", "File Tree", "<cmd>Neotree toggle<cr>"),
-  theme.button("f", "Find File", "<cmd>Telescope find_files<cr>"),
-  theme.button("g", "Grep Files", "<cmd>Telescope live_grep<cr>"),
   theme.button("q", "Close This Window", "<cmd>q<cr>"),
 }
 theme.section.footer.val = "new vi improved!"
