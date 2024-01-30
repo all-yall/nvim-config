@@ -15,6 +15,7 @@ wk.register({
   r = {"<cmd>noh<cr>",         "reset search highlight"},
   n = {vim.lsp.buf.rename,      "change name"},
   a = {vim.lsp.buf.code_action, "code action"},
+  L = {require('scat.brazil').display_current_file_url, "get gitfarm url"},
   ["<Tab>"] = {owo.buf.alt,        "alt file"},
 
   [";"] = {"<cmd>cnext<cr>zz",  "quickfix next"},
@@ -95,6 +96,7 @@ wk.register({
 
 wk.register({
   a = {vim.lsp.buf.code_action, "code action"},
+  L = {require('scat.brazil').display_current_file_url, "get gitfarm url"},
 }, { mode = 'v', prefix = "<leader>" })
 
 
