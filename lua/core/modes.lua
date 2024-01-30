@@ -45,7 +45,7 @@ function modes.debug()
     end,    "debug continue"},
   }, {
       mode   = "n",
-      prefix = "",
+      prefix = "<leader>",
       buffer = 0,
     })
 end
