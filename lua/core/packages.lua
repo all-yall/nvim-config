@@ -41,18 +41,26 @@ paq {
   'nvim-neo-tree/neo-tree.nvim';
   'gioele/vim-autoswap';
   'max397574/better-escape.nvim';
+  'windwp/nvim-autopairs';
+  {'L3MON4D3/LuaSnip',
+   build = function() os.execute[[
+             cd ~/.local/share/nvim/site/pack/paqs/start/LuaSnip/ &&
+             make install_jsregexp
+             ]] end
+  };
 
   -- New Commands
   'tpope/vim-fugitive';
   'vim-test/vim-test';
   'junegunn/vim-easy-align';
-  'L3MON4D3/LuaSnip';
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';
   'hrsh7th/cmp-path';
   'hrsh7th/cmp-cmdline';
   'hrsh7th/nvim-cmp';
   'saadparwaiz1/cmp_luasnip';
+  'L3MON4D3/cmp-luasnip-choice';
+  'hrsh7th/cmp-nvim-lsp-signature-help';
 
   -- Meta Stuff
   'lewis6991/impatient.nvim';

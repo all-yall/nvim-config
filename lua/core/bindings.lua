@@ -83,7 +83,8 @@ wk.register({
     },
     c = {
       name = "cmp",
-      b = {function() owo.cmp.setup.buffer{enabled=false} end, "disable cmp"}
+      d = {function() owo.cmp.setup.buffer{enabled=false} end, "disable cmp"},
+      e = {function() owo.cmp.setup.buffer{enabled=true} end, "enable cmp"}
     },
     q = {"<cmd>xall<cr>", "save all and close"},
     f = {"<cmd>qa!<cr>", "close all without saving"},
