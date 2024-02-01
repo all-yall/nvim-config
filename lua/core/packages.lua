@@ -48,6 +48,7 @@ paq {
              make install_jsregexp
              ]] end
   };
+  'abecodes/tabout.nvim';
 
   -- New Commands
   'tpope/vim-fugitive';
