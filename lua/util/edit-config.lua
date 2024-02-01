@@ -22,6 +22,7 @@ function config.reload(quiet)
   reload_module("cmp", false)
   reload_module("which-key", false)
   reload_module("neo-tree", false)
+  reload_module("lazy", false)
 
   vim.cmd.LspRestart()
   local reloaded, _ = pcall(dofile, config.init_file)
