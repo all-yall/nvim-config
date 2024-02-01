@@ -19,36 +19,32 @@ vim.g.loaded_logiPat = 1
 vim.g.loaded_rrhelper = 1
 
 -- Lua reigns supreme!
-vim.g.loaded_python3_provider = 0 --only need for gpt plugin 
+vim.g.loaded_python3_provider = 0
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.go.laststatus = 3
 
-local o = {
-  compatible = false,
+vim.opt.compatible = false
 
-  tabstop    = 2,
-  shiftwidth = 2,
-  expandtab  = true,
-  autoindent = true,
+vim.opt.tabstop    = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab  = true
+vim.opt.autoindent = true
 
-  cursorline = true,
-  incsearch  = true,
-  hidden     = true,
-  mouse      = 'a',
-  number     = true,
-  wrap       = false,
-  undofile   = true,
-  encoding = "UTF-8",
-  termguicolors = true,
-  -- see notify.lua for cmd height.
-}
+vim.opt.cursorline = true
+vim.opt.incsearch  = true
+vim.opt.hidden     = true
+vim.opt.mouse      = 'a'
+vim.opt.number     = true
+vim.opt.wrap       = false
+vim.opt.undofile   = true
+vim.opt.encoding = "UTF-8"
+vim.opt.termguicolors = true
 
-for opt, val in pairs(o) do
-  vim.opt[opt] = val
-end
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+-- see notify.lua for cmd height.
 
 vim.cmd [[
   syntax on

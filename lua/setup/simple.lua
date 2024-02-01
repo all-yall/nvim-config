@@ -26,6 +26,11 @@ require('telescope').setup{
         },
   },
 }
+
+require('nvim-autopairs').setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
+
 require('telescope').load_extension('fzf')
 
 require('gitsigns').setup()
@@ -38,5 +43,7 @@ require('scat').setup{
     user = "iamally"
   }
 }
+
+require('luasnip.loaders.from_vscode').lazy_load()
 
 vim.g.indent_blankline_char_highlight_list = {'LineNr'}

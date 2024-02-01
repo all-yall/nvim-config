@@ -59,5 +59,6 @@
         "/Users/iamspenc/.local/share/nvim/site/pack/paqs/start/cmp-nvim-lsp/after",
         "/Users/iamspenc/.local/share/nvim/site/pack/paqs/start/cmp-path/after",
         "/Users/iamspenc/.local/share/nvim/site/pack/paqs/start/cmp_luasnip/after"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

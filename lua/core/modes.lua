@@ -111,8 +111,6 @@ function modes.jdtls()
   vim.bo.tabstop = 4
   vim.bo.shiftwidth = 4
 end
---vscode-java-test.generate()
---vscode-java-test.goto_subjects()
 
 function modes.redirect_man_to_doc()
   wk.register({

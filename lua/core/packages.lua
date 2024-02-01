@@ -1,9 +1,6 @@
 local paq = require 'paq'
 owo.paq = paq
 
--- look at SCAT
--- https://code.amazon.com/packages/Scat-nvim/trees/mainline
--- parinfer
 paq {
   -- Allow paq to manage itself
   'savq/paq-nvim';
@@ -33,27 +30,37 @@ paq {
              cmake --install build --prefix build
              ]] end
            };
-  'simrat39/symbols-outline.nvim';
-  'nvim-neo-tree/neo-tree.nvim';
   'akinsho/bufferline.nvim';
   'lewis6991/gitsigns.nvim';
-  'max397574/better-escape.nvim';
   'goolord/alpha-nvim';
   'rcarriga/nvim-notify';
-  'gioele/vim-autoswap';
+  'kyazdani42/nvim-web-devicons';
 
-  ---- New Commands
+  -- Functional
+  'simrat39/symbols-outline.nvim';
+  'nvim-neo-tree/neo-tree.nvim';
+  'gioele/vim-autoswap';
+  'max397574/better-escape.nvim';
+  'windwp/nvim-autopairs';
+  {'L3MON4D3/LuaSnip',
+   build = function() os.execute[[
+             cd ~/.local/share/nvim/site/pack/paqs/start/LuaSnip/ &&
+             make install_jsregexp
+             ]] end
+  };
+
+  -- New Commands
   'tpope/vim-fugitive';
   'vim-test/vim-test';
   'junegunn/vim-easy-align';
-  'L3MON4D3/LuaSnip';
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-buffer';
   'hrsh7th/cmp-path';
   'hrsh7th/cmp-cmdline';
   'hrsh7th/nvim-cmp';
   'saadparwaiz1/cmp_luasnip';
-  --'CoderCookE/vim-chatgpt';
+  'L3MON4D3/cmp-luasnip-choice';
+  'hrsh7th/cmp-nvim-lsp-signature-help';
 
   -- Meta Stuff
   'lewis6991/impatient.nvim';
@@ -64,12 +71,5 @@ paq {
   -- Language Specific
   'mfussenegger/nvim-jdtls';
   'NvChad/nvim-colorizer.lua';
-
   { 'scat-nvim', url='ssh://git.amazon.com/pkg/Scat-nvim' };
-  --  '/apollo/env/envImprovement/vim/amazon/brazil-config';
-  --{'brazil-config',
-    --url='/apollo/env/NinjaHooks/configuration/vim/amazon/brazil-config'};
-  --{'amazon-gbrowse',
-   -- url='ssh://git.amazon.com:2222/pkg/Vim-code-browse'};
-  -- 'jasdel/vim-smithy'; -- lol smithy
 }

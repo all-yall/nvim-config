@@ -36,11 +36,13 @@ local MODULES = {
   "core.bindings",
   "core.modes",
 
+  "core.bindings",
+  "core.modes",
+
   "lang._pre",
   "lang.lua",
-  "lang.clangd",
   "lang.solargraph",
-  "lang.barium",
+  "lang.solargraph",
   "lang.jdtls-brazil",
   "lang.simple",
 
