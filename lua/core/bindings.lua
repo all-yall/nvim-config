@@ -74,13 +74,7 @@ wk.register({
       r = {"<cmd>LspRestart<cr>", "restart"},
       t = {"<cmd>LspStop<cr>", "stop"},
     },
-    p = {
-      name  = "packages",
-      i     = {"<cmd>PaqInstall<cr>",  "install"},
-      l     = {"<cmd>PaqLogOpen<cr>",  "log"},
-      u     = {"<cmd>PaqUpdate<cr>",  "update"},
-      c     = {"<cmd>PaqClean<cr>",  "clean"},
-    },
+    p = {"<cmd>Lazy<cr>",  "packages"},
     c = {
       name = "cmp",
       d = {function() owo.cmp.setup.buffer{enabled=false} end, "disable cmp"},
