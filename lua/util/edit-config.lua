@@ -41,6 +41,7 @@ function config.edit()
   if std.pwd() == config.root then
     std.notify("Sourcing config")
     config.reload(true)
+    vim.cmd("e!")
   else
     std.notify("Switching to config directory")
     OLD_DIR = std.pwd()
