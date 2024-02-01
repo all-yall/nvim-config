@@ -38,9 +38,7 @@ local MODULES = {
 
   "lang._pre",
   "lang.lua",
-  "lang.clangd",
   "lang.solargraph",
-  "lang.barium",
   "lang.jdtls-brazil",
   "lang.simple",
 

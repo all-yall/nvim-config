@@ -11,6 +11,7 @@ local lsp_langs = {
   "gopls",
   "golangci_lint_ls",
   "hls",
+  "clangd",
 };
 
 for _, lang in ipairs(lsp_langs) do
