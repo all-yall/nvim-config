@@ -3,8 +3,6 @@ local std = owo.std
 local config = {}
 owo.config = config
 
-config.init_file = std.get_env("MYVIMRC")
-config.root = vim.fs.dirname(config.init_file)
 
 --- Reload the configuration live 
 function config.reload(quiet)
@@ -25,7 +23,7 @@ function config.reload(quiet)
   reload_module("lazy", false)
 
   vim.cmd.LspRestart()
-  local reloaded, _ = pcall(dofile, config.init_file)
+  local reloaded, _ = pcall(dofile, std.get_config_file())
   if reloaded and not quiet then std.notify "Reloaded config" end
 end
 
@@ -46,7 +44,7 @@ function config.edit()
   else
     std.notify("Switching to config directory")
     OLD_DIR = std.pwd()
-    vim.api.nvim_set_current_dir(config.root)
-    vim.cmd("e " .. config.init_file)
+    vim.api.nvim_set_current_dir(std.get_config_folder())
+    vim.cmd("e " .. std.get_config_file())
   end
 end

@@ -69,4 +69,8 @@ lazy.setup {
   -- Language Specific
   'mfussenegger/nvim-jdtls',
   'NvChad/nvim-colorizer.lua',
+
+  -- Config
+  {dir = owo.std.get_config_folder(), name="AllysNvimConfig"},
+
 }

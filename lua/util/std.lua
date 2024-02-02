@@ -82,3 +82,12 @@ function std.motion_cmd(func, no_pass_text)
   vim.api.nvim_feedkeys("g@", 'n', false) -- TODO bad way to do this
 end
 
+
+function std.get_config_file()
+  return std.get_env("MYVIMRC")
+end
+
+function std.get_config_folder()
+  return vim.fs.dirname(std.get_config_file())
+end
+
