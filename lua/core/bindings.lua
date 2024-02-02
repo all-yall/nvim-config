@@ -114,9 +114,11 @@ vim.cmd[[
   command! X x 
   command! W w
 
-  "exit insert mode with fd like spacemacs
+  " exit insert mode with fd like spacemacs
   " I determined jk to be a very uncommon digraph
-  imap jk <Esc>
+  " Commented out because the mapping is made by 
+  " better-escape plugin
+  " imap jk <Esc>
 
   " Mimic Emacs Line Editing in Insert Mode Only
   imap <C-a> <Home>
