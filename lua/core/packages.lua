@@ -3,7 +3,7 @@ owo.lazy = lazy
 
 lazy.setup {
   -- Colors
-  {"catppuccin/nvim", as="catppuccin"},
+  {"catppuccin/nvim", name="catppuccin"},
 
   -- Language Server and Syntax Highlighting
   'neovim/nvim-lspconfig',
