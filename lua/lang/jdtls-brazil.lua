@@ -27,7 +27,6 @@ JDTLS_SETUP = function()
   vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java_libs/server/*.jar", 1), "\n"))
 
   local config = {
-    on_attach = require('aerial').on_attach,
     -- The command that starts the language server
       -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
       cmd = {'jdtls',

@@ -70,4 +70,7 @@ lazy.setup {
   'mfussenegger/nvim-jdtls',
   'NvChad/nvim-colorizer.lua',
   { 'scat-nvim', url='ssh://git.amazon.com/pkg/Scat-nvim' },
+
+  -- Config
+  {dir = owo.std.get_config_folder(), name="AllysNvimConfig"},
 }
