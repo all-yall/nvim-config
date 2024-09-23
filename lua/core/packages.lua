@@ -32,6 +32,7 @@ lazy.setup {
   'goolord/alpha-nvim',
   'rcarriga/nvim-notify',
   'kyazdani42/nvim-web-devicons',
+  'echasnovski/mini.icons',
 
   -- Functional
   'simrat39/symbols-outline.nvim',
