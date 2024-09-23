@@ -2,123 +2,89 @@ vim.g.mapleader = ' '
 
 local wk = require('which-key')
 owo.wk = wk
-wk.register({
-  s = {"<cmd>w<cr>",           "save file"},
-  d = {"<cmd>bd<cr>",          "close buf & win"},
-  c = {"<C-w>c",               "close win"},
-  C = {":Ask ",               "ask chatgpt"},
-  q = {owo.buf.close,         "close buf"}, -- TODO; this binding isn't the best.
-  Q = {owo.buf.force_close,   "force close buf"}, -- TODO; this binding isn't the best.
-  l = {owo.buf.next,          "next buf"},
-  h = {owo.buf.prev,          "prev buf"},
-  w = {"<C-w>",                "window commands"},
-  r = {"<cmd>noh<cr>",         "reset search highlight"},
-  n = {vim.lsp.buf.rename,      "change name"},
-  a = {vim.lsp.buf.code_action, "code action"},
-  ["<Tab>"] = {owo.buf.alt,        "alt file"},
 
-  [";"] = {"<cmd>cnext<cr>zz",  "quickfix next"},
-  ["."] = {"<cmd>cnext<cr>zz",  "quickfix next"},
-  [","] = {"<cmd>cprev<cr>zz",  "quickfix prev"},
-  ["/"] = {"<cmd>cclose<cr>", "quickfix close"},
+wk.add({
+  { "<leader> ", group = "meta" },
+  { "<leader> c", group = "cmp" },
+  { "<leader> cd", function() owo.cmp.setup.buffer{enabled=false} end, desc = "disable cmp" },
+  { "<leader> ce", function() owo.cmp.setup.buffer{enabled=true} end, desc = "enable cmp" },
+  { "<leader> f", "<cmd>qa!<cr>", desc = "close all without saving" },
+  { "<leader> l", group = "lsp" },
+  { "<leader> lg", "<cmd>LspInstall<cr>", desc = "get recommended" },
+  { "<leader> li", "<cmd>LspInfo<cr>", desc = "info" },
+  { "<leader> ll", "<cmd>LspLog<cr>", desc = "log" },
+  { "<leader> lr", "<cmd>LspRestart<cr>", desc = "restart" },
+  { "<leader> ls", "<cmd>LspStart<cr>", desc = "start" },
+  { "<leader> lt", "<cmd>LspStop<cr>", desc = "stop" },
+  { "<leader> n", "<cmd>Telescope notify<cr>", desc = "previous notifications" },
+  { "<leader> p", "<cmd>Lazy<cr>", desc = "packages" },
+  { "<leader> q", "<cmd>xall<cr>", desc = "save all and close" },
+  { "<leader> r", owo.config.reload, desc = "reload config" },
+  { "<leader>,", "<cmd>cprev<cr>zz", desc = "quickfix prev" },
+  { "<leader>.", "<cmd>cnext<cr>zz", desc = "quickfix next" },
+  { "<leader>/", "<cmd>cclose<cr>", desc = "quickfix close" },
+  { "<leader>;", "<cmd>cnext<cr>zz", desc = "quickfix next" },
+  { "<leader><Tab>", owo.buf.alt, desc = "alt file" },
+  { "<leader>Q", owo.buf.force_close, desc = "force close buf" },
+  { "<leader>a", vim.lsp.buf.code_action, desc = "code action" },
+  { "<leader>c", "<C-w>c", desc = "close win" },
+  { "<leader>d", "<cmd>bd<cr>", desc = "close buf & win" },
+  { "<leader>e", group = "error" },
+  { "<leader>ed", vim.diagnostic.open_float, desc = "describe error" },
+  { "<leader>en", vim.diagnostic.goto_next, desc = "next error" },
+  { "<leader>ep", vim.diagnostic.goto_prev, desc = "prev error" },
+  { "<leader>eq", vim.diagnostic.setloclist, desc = "add to quickfix" },
+  { "<leader>f", group = "find" },
+  { "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "search buffer" },
+  { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "find file project" },
+  { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "grep project" },
+  { "<leader>fs", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "search symbols in project" },
+  { "<leader>ft", "<cmd>Telescope<cr>", desc = "Telescope" },
+  { "<leader>g", group = "git" },
+  { "<leader>g ", ":rightb vert G ", desc = "open fugitive prompt" },
+  { "<leader>g<Enter>", "<cmd>rightb vert G<cr>", desc = "overview" },
+  { "<leader>gb", "<cmd>rightb vert G blame<cr>", desc = "blame" },
+  { "<leader>gd", "<cmd>rightb vert G diff<cr>", desc = "diff" },
+  { "<leader>gg", "<cmd>rightb vert G log --graph --date-order<cr>", desc = "graph" },
+  { "<leader>gi", "<cmd>Gclog<cr>", desc = "interactive history" },
+  { "<leader>gl", "<cmd>rightb vert G log<cr>", desc = "log" },
+  { "<leader>gn", "<cmd>Gitsigns next_hunk<cr>zz", desc = "next hunk" },
+  { "<leader>gp", "<cmd>Gitsigns prev_hunk<cr>zz", desc = "prev hunk" },
+  { "<leader>h", owo.buf.prev, desc = "prev buf" },
+  { "<leader>l", owo.buf.next, desc = "next buf" },
+  { "<leader>n", vim.lsp.buf.rename, desc = "change name" },
+  { "<leader>q", owo.buf.close, desc = "close buf" },
+  { "<leader>r", "<cmd>noh<cr>", desc = "reset search highlight" },
+  { "<leader>s", "<cmd>w<cr>", desc = "save file" },
+  { "<leader>t", group = "toggle & tests" },
+  { "<leader>tc", "<cmd>ColorizerToggle<cr>", desc = "toggle colorizer" },
+  { "<leader>to", "<cmd>SymbolsOutline<cr>", desc = "toggle outline" },
+  { "<leader>tr", "<cmd>Gitsigns toggle_deleted<cr>", desc = "toggle removed" },
+  { "<leader>tt", "<cmd>Neotree toggle<cr>", desc = "toggle file explorer" },
+  { "<leader>w", "<C-w>", desc = "window commands" }
+})
 
-  e = {
-    name = "error",
-    d = {vim.diagnostic.open_float, "describe error"},
-    n = {vim.diagnostic.goto_next, "next error"},
-    p = {vim.diagnostic.goto_prev, "prev error"},
-    q = {vim.diagnostic.setloclist, "add to quickfix"},
-  },
+wk.add({
+  { "<leader>a", vim.lsp.buf.code_action, desc = "code action", mode = "v" },
+})
 
-  g = {
-    name = "git",
-    ["<Enter>"] = {"<cmd>rightb vert G<cr>", "overview"},
-    d = {"<cmd>rightb vert G diff<cr>", "diff"},
-    b = {"<cmd>rightb vert G blame<cr>", "blame"},
-    l = {"<cmd>rightb vert G log<cr>", "log"}, g = {"<cmd>rightb vert G log --graph  --date-order<cr>", "graph"},
-    n = {"<cmd>Gitsigns next_hunk<cr>zz", "next hunk"},
-    p = {"<cmd>Gitsigns prev_hunk<cr>zz", "prev hunk"},
-
-    i = {"<cmd>Gclog<cr>", "interactive history"},
-
-    [" "] = {":rightb vert G ", "open fugitive prompt"},
-  },
-
-  f =  {
-    name = "find",
-    g = {"<cmd>Telescope live_grep<cr>",  "grep project"},
-    f = {"<cmd>Telescope find_files<cr>", "find file project"},
-    b = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search buffer"},
-    s = {"<cmd>Telescope current_buffer_fuzzy_find<cr>", "search symbols in project"},
-    t = {"<cmd>Telescope<cr>", "Telescope"},
-  },
-
-  t = {
-    name = "toggle & tests",
-    t = {"<cmd>Neotree toggle<cr>",       "toggle file explorer"},
-    r = {"<cmd>Gitsigns toggle_deleted<cr>",   "toggle removed"},
-    o = {"<cmd>SymbolsOutline<cr>",  "toggle outline"},
-    c = {"<cmd>ColorizerToggle<cr>",  "toggle colorizer"},
-
-  },
-
-
-  [' '] = {
-    name = "meta",
-    l = {
-      name = "lsp",
-      g = {"<cmd>LspInstall<cr>", "get recommended"},
-      i = {"<cmd>LspInfo<cr>", "info"},
-      l = {"<cmd>LspLog<cr>", "log"},
-      s = {"<cmd>LspStart<cr>", "start"},
-      r = {"<cmd>LspRestart<cr>", "restart"},
-      t = {"<cmd>LspStop<cr>", "stop"},
-    },
-    p = {"<cmd>Lazy<cr>",  "packages"},
-    c = {
-      name = "cmp",
-      d = {function() owo.cmp.setup.buffer{enabled=false} end, "disable cmp"},
-      e = {function() owo.cmp.setup.buffer{enabled=true} end, "enable cmp"}
-    },
-    q = {"<cmd>xall<cr>", "save all and close"},
-    f = {"<cmd>qa!<cr>", "close all without saving"},
-    n = {"<cmd>Telescope notify<cr>", "previous notifications"},
-    d = {owo.plug.notify.dismiss({}), "dismiss notifications"},
-    r = {owo.config.reload, "reload config"},
-  }
-}, { prefix = "<leader>" })
-
-wk.register({
-  a = {vim.lsp.buf.code_action, "code action"},
-}, { mode = 'v', prefix = "<leader>" })
-
-
-wk.register({
-  K =  {"<cmd>vert bel Man<cr>", "vertically open man pages"},
-  Q =  {owo.config.edit, "edit & save & source init file"},
-  [""] =  {owo.config.stop_edit, "change working directory back"},
-  H =  {vim.lsp.buf.hover, "hover"},
-
-  gd = {"<cmd>Telescope lsp_definitions<cr>" , "definition"},
-  gr = {"<cmd>Telescope lsp_references<cr>", "references"},
-}, {mode = "n", prefix=""})
-
+wk.add({
+  { "\17", owo.config.stop_edit, desc = "change working directory back" },
+  { "H", vim.lsp.buf.hover, desc = "hover" },
+  { "K", "<cmd>vert bel Man<cr>", desc = "vertically open man pages" },
+  { "Q", owo.config.edit, desc = "edit & save & source init file" },
+  { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "definition" },
+  { "gr", "<cmd>Telescope lsp_references<cr>", desc = "references" }
+})
 
 vim.cmd[[
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 
-
   " I make these typos all the time; time to fix them
   " who would want to  encrypt their file?
   command! X x 
   command! W w
-
-  " exit insert mode with fd like spacemacs
-  " I determined jk to be a very uncommon digraph
-  " Commented out because the mapping is made by 
-  " better-escape plugin
-  " imap jk <Esc>
 
   " Mimic Emacs Line Editing in Insert Mode Only
   imap <C-a> <Home>

@@ -5,26 +5,6 @@ owo.modes = modes
 
 local aug = vim.api.nvim_create_augroup("owo modes", {clear = true})
 
-function modes.dbsys()
-  wk.register({
-    X = {"Send "},
-  }, {
-      mode   = "n",
-      prefix = " ",
-      buffer = 0,
-    })
-end
-
-function modes.text()
-  vim.wo.wrap = true
-  vim.bo.filetype = "markdown"
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-  group = aug,
-  pattern={"chatgpt"},
-  callback=modes.text})
-
 local dap_setup = false
 local function maybe_setup_dap()
   if not dap_setup then
@@ -34,34 +14,26 @@ local function maybe_setup_dap()
 end
 
 function modes.debug()
-  wk.register ({
-    [";"] = {owo.plug.dap.repl.toggle,  "debug toggle repl"},
-    ["?"] = {owo.plug.dap.toggle_breakpoint,  "debug toggle breakpoint"},
-    [","] = {owo.plug.dap.step_into,  "debug step into"},
-    ["."] = {owo.plug.dap.step_over,  "debug step over"},
-    [">"] = {function()
+  wk.add({
+    { "<leader>,", owo.plug.dap.step_into, buffer = 0, desc = "debug step into" },
+    { "<leader>.", owo.plug.dap.step_over, buffer = 0, desc = "debug step over" },
+    { "<leader>;", owo.plug.dap.repl.toggle, buffer = 0, desc = "debug toggle repl" },
+    { "<leader>>", function()
       maybe_setup_dap()
       owo.plug.dap.continue()
-    end,    "debug continue"},
-  }, {
-      mode   = "n",
-      prefix = "",
-      buffer = 0,
-    })
+    end, buffer = 0, desc = "debug continue" },
+    { "<leader>?", owo.plug.dap.toggle_breakpoint, buffer = 0, desc = "debug toggle breakpoint" },
+  })
 end
 
 function modes.amazon()
-  wk.register({
-    t = {
-      n = {owo.amazon.test_nearest, "test nearest"},
-      w = {owo.amazon.test_suite, "test suite"},
-      s = {owo.amazon.select_test_strategy, "select test strategy"},
-    },
-    b = {
-      name = "build",
-      c = {owo.amazon.run_checkstyle, "checkstyle"},
-    },
-  }, {prefix="<leader>"})
+  wk.add({
+    { "<leader>b", group = "build" },
+    { "<leader>bc", owo.amazon.run_checkstyle, desc = "checkstyle" },
+    { "<leader>tn", owo.amazon.test_nearest, desc = "test nearest" },
+    { "<leader>ts", owo.amazon.select_test_strategy, desc = "select test strategy" },
+    { "<leader>tw", owo.amazon.test_suite, desc = "test suite" },
+  })
 end
 
 local jdtls = require('jdtls')
@@ -71,35 +43,27 @@ function modes.jdtls()
     config_overrides={},
   });
 
-  local bindings = {
-      j = {
-      name = "jdtls bindings",
-      o = {jdtls.organize_imports,  "organize imports"},
-      i = {jdtls.compile,  "incremental build"},
-      b = {jdtls.build_projects,  "build projects"},
-      u = {jdtls.update_project_config,  "update project config"},
-      c = {jdtls.extract_constant,  "constant extract"},
-      v = {jdtls.extract_variable,  "variable extract"},
-      V = {jdtls.extract_variable_all,  "all variables extract"},
-      m = {jdtls.extract_method,  "method extract"},
-      s = {jdtls.super_implementation,  "super goto"},
-      p = {jdtls.javap,  "javap tool"},
-      l = {jdtls.jshell,  "jshell tool"},
-      j = {jdtls.jol,  "jol tool"},
-      f = {jdtls.open_classfile,  "open classfile"},
-      d = {
-        name = "dap",
-        c = {jdtls.test_class, "class test"},
-        m = {jdtls.test_nearest_method, "method test"},
-        p = {jdtls.pick_test, "pick test"},
-        f = {jdtls.fetch_main_configs, "fetch main configs"},
-        S = {jdtls.setup_dap_main_class_configs, "setup dap main class"},
-        s = {jdtls.setup_dap, "setup dap"},
-      },
-    },
-  }
-  wk.register(bindings, {mode="n", prefix="<leader>"})
-  wk.register(bindings, {mode="v", prefix="<leader>"})
+  wk.add({
+    { "<leader>j", group = "jdtls bindings" },
+    { "<leader>jV", jdtls.extract_variable_all, desc = "all variables extract" },
+    { "<leader>jb", jdtls.build_projects, desc = "build projects" },
+    { "<leader>jc", jdtls.extract_constant, desc = "constant extract" },
+    { "<leader>jd", group = "dap" },
+    { "<leader>jdc", jdtls.test_class, desc = "class test" },
+    { "<leader>jdm", jdtls.test_nearest_method, desc = "method test" },
+    { "<leader>jdp", jdtls.pick_test, desc = "pick test" },
+    { "<leader>jds", jdtls.setup_dap, desc = "setup dap" },
+    { "<leader>jf", jdtls.open_classfile, desc = "open classfile" },
+    { "<leader>ji", jdtls.compile, desc = "incremental build" },
+    { "<leader>jj", jdtls.jol, desc = "jol tool" },
+    { "<leader>jl", jdtls.jshell, desc = "jshell tool" },
+    { "<leader>jm", jdtls.extract_method, desc = "method extract" },
+    { "<leader>jo", jdtls.organize_imports, desc = "organize imports" },
+    { "<leader>jp", jdtls.javap, desc = "javap tool" },
+    { "<leader>js", jdtls.super_implementation, desc = "super goto" },
+    { "<leader>ju", jdtls.update_project_config, desc = "update project config" },
+    { "<leader>jv", jdtls.extract_variable, desc = "variable extract" },
+  })
 
   modes.debug()
 
@@ -108,13 +72,10 @@ function modes.jdtls()
 end
 
 function modes.redirect_man_to_doc()
-  wk.register({
-    K = {"yiw:vert bel help \"<cr>", "Lookup symbol in vim help"}
-  }, {mode="n", prefix="", buffer=0})
-
-  wk.register({
-    K = {"y:vert bel help \"<cr>", "Lookup symbol in vim help"}
-  }, {mode="v", prefix="", buffer=0})
+  wk.add({
+    { "K", "yiw:vert bel help \"<cr>", desc = "Lookup symbol in vim help" },
+    { "K", "y:vert bel help \"<cr>", mode = "v", desc = "Lookup symbol in vim help" },
+  })
 end
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -124,9 +85,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 
 function modes.q_to_close()
-  wk.register({
-    q = {":q!<cr>", "close window with q"}
-  }, {mode="n", prefix="", buffer=0})
+  wk.add({
+    { "q", ":q!<cr>", desc = "close window with q" },
+  })
 end
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -155,31 +116,3 @@ vim.api.nvim_create_autocmd("FileType", {
     end, 30)
   end
 })
-
-local function create_notes_mode()
-  wk.register({
-    ["<Enter>"] = {
-      function()
-        vim.api.nvim_feedkeys("gf", 'n', false)
-      end,
-      "go to file",
-    },
-    ["<Backspace>"] = {
-      owo.buf.alt,
-      "back file",
-    },
-  }, {
-    modes = "n",
-    prefix = "",
-    buffer = 0,
-  })
-end
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"markdown"},
-  group = aug,
-  callback = function()
-    create_notes_mode()
-  end
-})
-
