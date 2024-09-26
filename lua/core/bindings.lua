@@ -74,7 +74,8 @@ wk.add({
   { "K", "<cmd>vert bel Man<cr>", desc = "vertically open man pages" },
   { "Q", owo.config.edit, desc = "edit & save & source init file" },
   { "gd", "<cmd>Telescope lsp_definitions<cr>", desc = "definition" },
-  { "gr", "<cmd>Telescope lsp_references<cr>", desc = "references" }
+  { "gr", "<cmd>Telescope lsp_references<cr>", desc = "references" },
+  {"", "\"+", desc = "system clipboard"}
 })
 
 vim.cmd[[
