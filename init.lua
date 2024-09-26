@@ -18,7 +18,6 @@ local MODULES = {
   "setup.neo-tree",
   "setup.treesitter",
   "setup.ts-context",
-  "setup.dracula",
   "setup.simple",
   "setup.alpha",
   "setup.notify",
@@ -36,12 +35,8 @@ local MODULES = {
   "core.bindings",
   "core.modes",
 
-  "core.bindings",
-  "core.modes",
-
   "lang._pre",
   "lang.lua",
-  "lang.solargraph",
   "lang.solargraph",
   "lang.jdtls-brazil",
   "lang.simple",
