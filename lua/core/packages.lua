@@ -47,6 +47,7 @@ lazy.setup {
              ]] end
   },
   'abecodes/tabout.nvim',
+  'LunarVim/bigfile.nvim',
 
   -- New Commands
   'tpope/vim-fugitive',
