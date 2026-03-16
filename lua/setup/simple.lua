@@ -36,8 +36,6 @@ require("ibl").setup()
 
 require("bigfile").setup{}
 
-require('luasnip.loaders.from_vscode').lazy_load()
-
 vim.g.indent_blankline_char_highlight_list = {'LineNr'}
 
-
+require('kitty-scrollback').setup()

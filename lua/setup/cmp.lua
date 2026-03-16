@@ -1,13 +1,9 @@
 local cmp = require('cmp')
-local luasnip = require('luasnip')
 owo.cmp = cmp
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body, {
-        indent = true,
-      })
     end,
   },
   window = {
@@ -22,24 +18,15 @@ cmp.setup {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm({ select = true })
-      elseif luasnip.jumpable(1) then
-        luasnip.jump(1)
-      else
         fallback()
       end
     end, {'i', 's'}),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
+      fallback()
     end, {'i', 's'}),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp'},
-    { name = 'luasnip'},
-    { name = 'luasnip-choice'},
     { name = 'path' },
     { name = 'buffer', keyword_length = 3},
   }),

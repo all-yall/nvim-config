@@ -1,5 +1,8 @@
-
-local config = {
+return {
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    cmd = {'Neotree'},
+    opts = {
   -- If a user has a sources list it will replace this one.
   -- Only sources listed here will be loaded.
   -- You can also add an external source by adding it's name to this list.
@@ -498,5 +501,5 @@ local config = {
   },
 }
 
-owo.plug.neo_tree = require("neo-tree")
-owo.plug.neo_tree.setup(config)
+  }
+}

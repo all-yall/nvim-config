@@ -2,20 +2,19 @@
 owo = {}
 
 require("install-lazy")
-
-local impatient_ok, impatient = pcall(require, "impatient")
-if impatient_ok then impatient.enable_profile() end
+require("lazy").setup("plugins")
+impatient = require('impatient')
+impatient.enable_profile()
 
 local MODULES = {
+
   "util.debug",
   "util.std",
-  "core.packages",
   "core.options",
 
   "setup._pre",
   "setup.which-key",
   "setup.mason",
-  "setup.neo-tree",
   "setup.treesitter",
   "setup.ts-context",
   "setup.catppuccin",
