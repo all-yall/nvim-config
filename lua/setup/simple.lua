@@ -28,21 +28,11 @@ require('telescope').setup{
   },
 }
 
-require('nvim-autopairs').setup({
-  disable_filetype = { "TelescopePrompt" , "vim" },
-})
-
-require("tabout").setup({
-  tabkey = "<Tab>",
-  backwards_tabkey = "<S-Tab>",
-})
-
 require('telescope').load_extension('fzf')
 
 require('gitsigns').setup()
 
 require("ibl").setup()
-
 
 require("bigfile").setup{}
 

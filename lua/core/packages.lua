@@ -39,7 +39,6 @@ lazy.setup {
   'nvim-neo-tree/neo-tree.nvim',
   'gioele/vim-autoswap',
   'max397574/better-escape.nvim',
-  'windwp/nvim-autopairs',
   {'L3MON4D3/LuaSnip',
    build = function() os.execute[[
              cd ~/.local/share/nvim/lazy/LuaSnip/ &&
@@ -48,6 +47,7 @@ lazy.setup {
   },
   'abecodes/tabout.nvim',
   'LunarVim/bigfile.nvim',
+  'mikesmithgh/kitty-scrollback.nvim',
 
   -- New Commands
   'tpope/vim-fugitive',

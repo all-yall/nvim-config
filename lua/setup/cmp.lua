@@ -65,7 +65,3 @@ cmp.setup.cmdline(':', {
 
 cmp.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-cmp.event:on(
-  'confirm_done',
-  require('nvim-autopairs.completion.cmp').on_confirm_done()
-)

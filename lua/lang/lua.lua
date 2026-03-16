@@ -1,4 +1,4 @@
-owo.lsp.lspconfig.lua_ls.setup {
+vim.lsp.config.lua_ls = {
   capabilities = owo.cmp.capabilities,
   settings = {
     Lua = {

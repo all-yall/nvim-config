@@ -1,5 +1,5 @@
 
-owo.lsp.lspconfig.solargraph.setup {
+vim.lsp.config.solargraph = {
   capabilities = owo.cmp.capabilities,
   single_file_support = true,
   init_options = {formatting = true},
